@@ -33,12 +33,12 @@ namespace WpfApp1
 
         private void LoadTasksFromJsonFile()
         {
-            // Реализовать загрузку из файла
+            
         }
 
         private void SaveTasksToJsonFile()
         {
-            // Реализовать сохранение в файл
+            
         }
 
         private void CompleteButton_Click(object sender, RoutedEventArgs e)
