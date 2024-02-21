@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
         <Grid>
-            <ListBox x:Name="tasksListBox" Margin="10" ItemsSource="{Binding TaskList}">
+        <ListBox Margin="10" SelectedItem="{Binding SelectedTask}" ItemsSource="{Binding TaskList}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -19,8 +19,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button Content="Выполнена" Click="CompleteButton_Click" Margin="0 0 10 0"/>
-                <Button Content="Отклонена" Click="RejectButton_Click"/>
+                <Button Content="Выполнена" Click="CompleteButton_Click" Margin="0 0 10 0" Height="100"/>
+                <Button Content="Отклонена" Click="RejectButton_Click" Height="100"/>
             </StackPanel>
             <Menu VerticalAlignment="Top">
                 <MenuItem Header="Файл">

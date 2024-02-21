@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +30,8 @@ namespace WpfApp1
             TaskList = taskList;
         }
 
+        public TaskModel newTaskModel { get; set; }
+
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             var newTask = new TaskModel
@@ -35,13 +39,15 @@ namespace WpfApp1
                 Description = descriptionTextBox.Text,
                 Urgency = urgencyComboBox.SelectedItem?.ToString()
             };
+            newTaskModel = newTask;
             TaskList.Add(newTask);
             SaveTasksToJsonFile();
             Close();
         }
         private void SaveTasksToJsonFile()
         {
-            
+            using (var fs = File.Create("taskList.json"))
+                JsonSerializer.Serialize(fs, TaskList);
         }
     }
 }

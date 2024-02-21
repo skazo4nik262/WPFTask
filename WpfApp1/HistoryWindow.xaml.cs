@@ -25,11 +25,11 @@ namespace WpfApp1
         public HistoryWindow(ObservableCollection<TaskModel> taskList)
         {
             InitializeComponent();
+            DataContext = this;
             TaskList = taskList;
             FilterHistoryTasks();
         }
 
-        // Фильтрация задач для отображения истории
         private void FilterHistoryTasks()
         {
             var historyTasks = TaskList.Where(t => t.Status == "Выполнена" || t.Status == "Отклонена");
